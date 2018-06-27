@@ -1,8 +1,8 @@
 #setwd("~/Documents/My-Courses/IIITB/FIFA Challenge/Elo")
 setwd("C:/Mahesh/Personal/Projects/R/Upgrad/Prediction Model/Before Finalizing")
 library(dplyr)
-library(elo)
 library(readr)
+library(elo)
 
 matches <- read_csv('results.csv')
 teams <- data.frame(team = unique(c(matches$home_team, matches$away_team)))
