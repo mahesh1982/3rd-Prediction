@@ -1,8 +1,9 @@
-#setwd("~/Documents/My-Courses/IIITB/FIFA Challenge/Elo")
-setwd("C:/Mahesh/Personal/Projects/R/Upgrad/Prediction Model/Before Finalizing")
+setwd("~/Documents/My-Courses/IIITB/FIFA Challenge/Elo/3rd Prediction")
+#setwd("C:/Mahesh/Personal/Projects/R/Upgrad/Prediction Model/Before Finalizing")
 library(dplyr)
-library(readr)
 library(elo)
+library(readr)
+library(pvclust)
 
 matches <- read_csv('results.csv')
 teams <- data.frame(team = unique(c(matches$home_team, matches$away_team)))
@@ -53,13 +54,77 @@ WC_teams <- teams %>%
   arrange(-elo)
 
 print.data.frame(WC_teams)
+head(WC_teams)
 
-print("Mexico Vs Sweden")
-Mexico <- subset(WC_teams, team == "Mexico")$elo
-Sweden <- subset(WC_teams, team == "Sweden")$elo
-elo.prob(Mexico, Sweden)
+won_battle <- function(team1, team2) {
+  print(paste(team1, team2, ""))
+  team_1 <- subset(WC_teams, team == team1)$elo
+  team_2 <- subset(WC_teams, team == team2)$elo
+  res_1 <- elo.prob(team_1, team_2)
+  if (res_1 > 0.5) {
+    return(team1)
+  } else {
+    return(team2)
+  }
+}
 
-print("Germany Vs Korea Republic")
-Germany <- subset(WC_teams, team == "Germany")$elo
-Korea_Republic <- subset(WC_teams, team == "Korea Republic")$elo
-elo.prob(Germany, Korea_Republic)
+print("France Vs Argentina")
+
+#Round 16 matches
+round16_teams <-   matrix(c("France", "Argentina",
+                     "Uruguay", "Portugal",
+                     "Brazil", "Mexico",
+                     "Belgium", "Japan",
+                     "Spain", "Russia",
+                     "Croatia", "Denmark",
+                     "Sweden", "Switzerland",
+                     "Colombia", "England"),ncol = 2, byrow = TRUE)
+res_R16 <- c()
+
+for (i in seq(1,8, by=1)){
+  t1 <- round16_teams[i, 1]
+  t2 <- round16_teams[i, 2]
+  res <- won_battle(t1, t2)
+  print("Round 16 Winner is:")
+  print(res)
+  res_R16 <- c(res_R16, res)
+}
+print(res_R16)
+
+#Quter Finals
+res_Qua <- c()
+Qua <-   matrix(res_R16,ncol = 2, byrow = TRUE)
+for (j in seq(1,4, by=1)){
+  q1 <- Qua[j, 1]
+  q2 <- Qua[j, 2]
+  res_q <- won_battle(q1, q2)
+  print("Quatters Winner is:")
+  print(res_q)
+  res_Qua <- c(res_Qua, res_q)
+}
+print(res_Qua)
+
+#Semis
+sem_1 <- won_battle(res_Qua[1], res_Qua[2])
+print("Semmis 1 Winner is:")
+print(sem_1)
+
+sem_2 <- won_battle(res_Qua[3], res_Qua[4])
+print("Semmis 2 Winner is:")
+print(sem_2)
+
+#Final
+final <- won_battle(sem_1, sem_2)
+print("Grand Final Winner is:")
+print(final)
+
+print(res_R16)
+print(res_Qua)
+print(c(sem_1, sem_2))
+print("Final Winner")
+print(final)
+
+#result <- pvclust(WC_teams, method.dist = "cor",
+#                  method.hclust = "average", nboot = 10)
+#plot(result)
+#pvrect(result)

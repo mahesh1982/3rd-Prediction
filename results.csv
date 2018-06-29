@@ -39069,3 +39069,31 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2018-06-20,Portugal,Morocco,1,0,FIFA World Cup,Moscow,Russia,TRUE
 2018-06-20,Uruguay,Saudi Arabia,1,0,FIFA World Cup,Rostov-on-Don,Russia,TRUE
 2018-06-20,Iran,Spain,0,1,FIFA World Cup,Kazan,Russia,TRUE
+21-06-2018,Denmark,Australia,1,1,FIFA World Cup,Samara Stadium,Russia,TRUE
+21-06-2018,France,Peru,1,0,FIFA World Cup,Ekaterinburg Stadium,Russia,TRUE
+21-06-2018,Argentina,Croatia,0,3,FIFA World Cup,Nizhny Novgorod Stadium,Russia,TRUE
+22-06-2018,Brazil,Costa Rica,2,0,FIFA World Cup,Saint Petersburg Stadium,Russia,TRUE
+22-06-2018,Nigeria,Iceland,2,0,FIFA World Cup,Volgograd Stadium,Russia,TRUE
+22-06-2018,Serbia,Switzerland,1,2,FIFA World Cup,Kaliningrad Stadium,Russia,TRUE
+23-06-2018,Belgium,Tunisia,5,2,FIFA World Cup,"Otkrytiye Arena, Moscow",Russia,TRUE
+23-06-2018,Korea Republic,Mexico,1,2,FIFA World Cup,Rostov-on-Don Stadium,Russia,TRUE
+23-06-2018,Germany,Sweden,2,1,FIFA World Cup,"Fisht Stadium, Sochi",Russia,TRUE
+24-06-2018,England,Panama,6,1,FIFA World Cup,Nizhny Novgorod Stadium,Russia,TRUE
+24-06-2018,Japan,Senegal,2,2,FIFA World Cup,Ekaterinburg Stadium,Russia,TRUE
+24-06-2018,Poland,Colombia,0,3,FIFA World Cup,Kazan Arena,Russia,TRUE
+25-06-2018,Uruguay,Russia,3,0,FIFA World Cup,Samara Stadium,Russia,FALSE
+25-06-2018,Saudi Arabia,Egypt,2,1,FIFA World Cup,Volgograd Stadium,Russia,TRUE
+25-06-2018,Iran,Portugal,1,1,FIFA World Cup,Saransk Stadium,Russia,TRUE
+25-06-2018,Spain,Morocco,2,2,FIFA World Cup,Kaliningrad Stadium,Russia,TRUE
+26-06-2018,Denmark,France,0,0,FIFA World Cup,"Luzhniki Stadium, Moscow",Russia,TRUE
+26-06-2018,Australia,Peru,0,2,FIFA World Cup,"Fisht Stadium, Sochi",Russia,TRUE
+26-06-2018,Nigeria,Argentina,1,2,FIFA World Cup,Saint Petersburg Stadium,Russia,TRUE
+26-06-2018,Iceland,Croatia,1,2,FIFA World Cup,Rostov-on-Don Stadium,Russia,TRUE
+27-06-2018,South Korea,Germany,2,0,FIFA World Cup,Kazan Arena,Russia,TRUE
+27-06-2018,Mexico,Swden,0,3,FIFA World Cup,Ekaterinburg Stadium,Russia,TRUE
+27-06-2018,Serbia,Brazil,0,2,FIFA World Cup,"Otkrytiye Arena, Moscow",Russia,TRUE
+27-06-2018,Switzerland,Costa Rica,2,2,FIFA World Cup,Nizhny Novgorod Stadium,Russia,TRUE
+28-06-2018,Japan,Poland,0,1,FIFA World Cup,Volgograd Stadium,Russia,TRUE
+28-06-2018,Senegal,Colombia,0,1,FIFA World Cup,Samara Stadium,Russia,TRUE
+28-06-2018,England,Belgium,0,1,FIFA World Cup,Kaliningrad Stadium,Russia,TRUE
+28-06-2018,Panama,Tunisia,1,2,FIFA World Cup,Saransk Stadium,Russia,TRUE
