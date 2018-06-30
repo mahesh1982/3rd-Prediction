@@ -3,7 +3,7 @@ setwd("~/Documents/My-Courses/IIITB/FIFA Challenge/Elo/3rd Prediction")
 library(dplyr)
 library(elo)
 library(readr)
-library(pvclust)
+library(crayon)
 
 matches <- read_csv('results.csv')
 teams <- data.frame(team = unique(c(matches$home_team, matches$away_team)))
@@ -53,8 +53,7 @@ WC_teams <- teams %>%
                      "Korea Republic", "Saudi Arabia")) %>%
   arrange(-elo)
 
-print.data.frame(WC_teams)
-head(WC_teams)
+dendogram_fifa <- c()
 
 won_battle <- function(team1, team2) {
   print(paste(team1, team2, ""))
@@ -63,8 +62,14 @@ won_battle <- function(team1, team2) {
   res_1 <- elo.prob(team_1, team_2)
   if (res_1 > 0.5) {
     return(team1)
+    dendogram_fifa <- c(dendogram_fifa, team1)
+    dendogram_fifa <- c(dendogram_fifa, res_1)
+    dendogram_fifa <- c(dendogram_fifa, (1-res_1))
   } else {
     return(team2)
+    dendogram_fifa <- c(dendogram_fifa, team2)
+    dendogram_fifa <- c(dendogram_fifa, res_1)
+    dendogram_fifa <- c(dendogram_fifa, (1-res_1))
   }
 }
 
@@ -85,8 +90,8 @@ for (i in seq(1,8, by=1)){
   t1 <- round16_teams[i, 1]
   t2 <- round16_teams[i, 2]
   res <- won_battle(t1, t2)
-  print("Round 16 Winner is:")
-  print(res)
+  #print("Round 16 Winner is:")
+  #print(res)
   res_R16 <- c(res_R16, res)
 }
 print(res_R16)
@@ -98,33 +103,31 @@ for (j in seq(1,4, by=1)){
   q1 <- Qua[j, 1]
   q2 <- Qua[j, 2]
   res_q <- won_battle(q1, q2)
-  print("Quatters Winner is:")
-  print(res_q)
+  #print("Quatters Winner is:")
+  #print(res_q)
   res_Qua <- c(res_Qua, res_q)
 }
-print(res_Qua)
+#print(res_Qua)
 
 #Semis
 sem_1 <- won_battle(res_Qua[1], res_Qua[2])
-print("Semmis 1 Winner is:")
-print(sem_1)
+#print("Semmis 1 Winner is:")
+#print(sem_1)
 
 sem_2 <- won_battle(res_Qua[3], res_Qua[4])
-print("Semmis 2 Winner is:")
-print(sem_2)
+#print("Semmis 2 Winner is:")
+#print(sem_2)
 
 #Final
 final <- won_battle(sem_1, sem_2)
-print("Grand Final Winner is:")
-print(final)
+#print("Grand Final Winner is:")
+#print(final)
 
-print(res_R16)
-print(res_Qua)
-print(c(sem_1, sem_2))
-print("Final Winner")
-print(final)
-
-#result <- pvclust(WC_teams, method.dist = "cor",
-#                  method.hclust = "average", nboot = 10)
-#plot(result)
-#pvrect(result)
+cat(bold(silver("\nRound 16 Winners Are:\n")))
+cat(blue(res_R16))
+cat(bold(silver("\nQuarter Final Winners are:\n")))
+cat(magenta(res_Qua))
+cat(bold(silver("\nSemi Final Winners are:\n")))
+cat(yellow(c(sem_1, sem_2)))
+cat(bold(silver("\nGrand Final Winner is:\n")))
+cat(bold(green(final)))
